@@ -1,14 +1,17 @@
 <template>
-<Slajd/>
+  <ZegarSlajd1 />
+  <Bg3DSlajd1 />
 </template>
 
 <script>
-import Slajd from '@/components/Slajd.vue'
+import ZegarSlajd1 from "@/components/Slajdy/Zegar/ZegarSlajd1.vue";
+import Bg3DSlajd1 from "@/components/Slajdy/Background3D/Bg3DSlajd1.vue";
 
 export default {
   name: "Home",
   components: {
-    Slajd
- },
+    ZegarSlajd1,
+    Bg3DSlajd1,
+  },
 };
 </script>
