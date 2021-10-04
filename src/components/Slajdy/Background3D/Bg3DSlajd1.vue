@@ -25,8 +25,9 @@ export default {
       const container = document.querySelector("#container");
       console.log(container.width);
       glassCard.addEventListener("mousemove", (e) => {
-        let xAxis = (container.clientHeight - e.pageX + 200) / 70;
-        let yAxis = (container.clientWidth - e.pageY) / 70;
+        let xAxis = (container.clientHeight / 2 - e.pageX + 300) / 70;
+        let yAxis = (container.clientWidth / 2 - e.pageY + 1000) / 70;
+        console.log("xAxis: ", xAxis, "yAxis: ", yAxis);
         glassCard.style.transform = `rotateY(${xAxis}deg) rotateX(${-yAxis}deg)`;
       });
 
