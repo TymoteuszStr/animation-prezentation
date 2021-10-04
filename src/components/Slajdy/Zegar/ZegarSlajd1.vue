@@ -31,7 +31,7 @@
 import { onMounted, ref } from "vue";
 import SlajdWrapper from "../SlajdWrapper.vue";
 export default {
-  name: "Home",
+  name: "Zegar",
   components: {
     SlajdWrapper,
   },
