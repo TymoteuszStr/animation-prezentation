@@ -24,9 +24,13 @@ export default {
 }
 
 .slajd-container {
-  border: 4px solid red;
+  border-radius: 6px;
   width: 90%;
   height: 80%;
   position: relative;
+  background-color: #3c5b74;
+  -webkit-box-shadow: 0px 0px 28px -3px rgba(0, 36, 63, 1);
+  -moz-box-shadow: 0px 0px 28px -3px rgba(0, 36, 63, 1);
+  box-shadow: 0px 0px 28px -3px rgba(0, 36, 63, 1);
 }
 </style>

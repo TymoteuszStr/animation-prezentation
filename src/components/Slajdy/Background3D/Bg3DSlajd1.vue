@@ -1,5 +1,5 @@
 <template>
-  <SlajdWrapper>
+  <SlajdWrapper id="slajdWrapper">
     <div class="bg3Wrapper" id="container">
       <div class="glass" id="glass"></div>
       <Circle :size="300" style="bottom: 50px; left: 15%" />
@@ -23,10 +23,12 @@ export default {
     onMounted(() => {
       const glassCard = document.querySelector("#glass");
       const container = document.querySelector("#container");
-      console.log(container.width);
+      const slajd = document.querySelector("#slajdWrapper");
       glassCard.addEventListener("mousemove", (e) => {
-        let xAxis = (container.clientHeight - e.pageX + 200) / 70;
-        let yAxis = (container.clientWidth - e.pageY) / 70;
+        console.log(slajd.clientHeight);
+        let xAxis = (container.clientHeight / 2 - e.pageX + 600) / 70;
+        let yAxis = (container.clientWidth / 2 - e.pageY + 1900) / 70;
+        console.log("xAxis: ", xAxis, "yAxis: ", yAxis);
         glassCard.style.transform = `rotateY(${xAxis}deg) rotateX(${-yAxis}deg)`;
       });
 
