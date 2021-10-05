@@ -15,9 +15,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/style.scss";
 .circle {
   background-color: white;
-  background: linear-gradient(#b67929, #c5914c);
+  background: linear-gradient($main-color, #c5914c);
   position: absolute;
   border-radius: 50%;
   z-index: 2;

@@ -73,6 +73,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/style/style.scss";
+
 .inputsWraper {
   position: absolute;
   top: 0;
@@ -81,7 +83,6 @@ export default {
 
   input {
     display: flex;
-    background-color: #b67929;
   }
 }
 .zegarSlajd {
@@ -97,7 +98,7 @@ export default {
   .clock {
     width: 500px;
     height: 500px;
-    border: 20px solid #b67929;
+    border: 20px solid $main-color;
     border-radius: 50%;
     position: relative;
     padding: 20px;
