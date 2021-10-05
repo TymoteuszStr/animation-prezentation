@@ -1,3 +1,4 @@
+@import "@/style/style.scss";
 <template>
   <router-view></router-view>
 </template>
