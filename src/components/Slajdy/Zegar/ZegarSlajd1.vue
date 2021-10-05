@@ -38,7 +38,7 @@ export default {
   setup() {
     let start = ref([0, 0]);
     let end = ref([0, 0]);
-    let duration = ref(0.1);
+    let duration = ref(0);
     onMounted(() => {
       const secondHand = document.querySelector(".second-hand");
       const minHand = document.querySelector(".min-hand");
@@ -81,14 +81,13 @@ export default {
 
   input {
     display: flex;
+    background-color: #b67929;
   }
 }
 .zegarSlajd {
   position: absolute;
-  background: #018ded;
   text-align: center;
   font-size: 10px;
-
   height: 100%;
   width: 100%;
   display: flex;
@@ -98,11 +97,11 @@ export default {
   .clock {
     width: 500px;
     height: 500px;
-    border: 20px solid white;
+    border: 20px solid #b67929;
     border-radius: 50%;
     position: relative;
     padding: 20px;
-    box-shadow: 0 0 0px 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+    box-shadow: 0 0 0px 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #00243f,
       inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
@@ -116,7 +115,7 @@ export default {
   .hand {
     width: 50%;
     height: 6px;
-    background-color: black;
+    background-color: #00243f;
     position: absolute;
     top: 50%;
     transform-origin: 100%;

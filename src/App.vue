@@ -18,7 +18,7 @@ export default {
 
 #app {
   scroll-behavior: smooth;
-  background-color: whitesmoke;
+  background-color: #3c5b74;
   min-height: 100vh;
   max-width: 100%;
   -webkit-font-smoothing: antialiased;
