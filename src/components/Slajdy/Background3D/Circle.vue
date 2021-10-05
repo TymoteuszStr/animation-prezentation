@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 .circle {
   background-color: white;
-  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  background: linear-gradient(#b67929, #c5914c);
   position: absolute;
   border-radius: 50%;
   z-index: 2;

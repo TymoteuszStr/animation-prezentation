@@ -53,7 +53,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right top, #2596be, #6cdbeb);
+  background: linear-gradient(to right top, #264b77, #69a4eb);
 
   .glass {
     transform-style: preserve-3d;
