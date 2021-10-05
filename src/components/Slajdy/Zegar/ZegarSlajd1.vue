@@ -12,15 +12,16 @@
         </div>
       </div>
       <div class="inputsWraper">
-        <label>początek X:</label>
+        <label>Krzywa Beziera: <br /><br /></label>
+        <label>X2:</label>
         <input type="range" min="-2" max="3" step="0.1" v-model="start[0]" />
-        <label>początek Y:</label>
+        <label>Y2:</label>
         <input type="range" min="-2" max="3" step="0.1" v-model="start[1]" />
-        <label>koniec X:</label>
+        <label>X3:</label>
         <input type="range" min="-2" max="3" step="0.1" v-model="end[0]" />
-        <label>koniec Y:</label>
+        <label>Y3:</label>
         <input type="range" min="-2" max="3" step="0.1" v-model="end[1]" />
-        <label>czas trwania</label>
+        <label>czas trwania:</label>
         <input type="range" min="0" max="1" step="0.1" v-model="duration" />
       </div>
     </div>
@@ -80,9 +81,17 @@ export default {
   top: 0;
   right: 0;
   flex-direction: column;
-
+  font-size: 20px;
+  margin: 20px 20px;
+  label {
+    color: whitesmoke;
+    font-weight: 700;
+  }
   input {
     display: flex;
+    width: 200px;
+    height: 10px;
+    margin: 10px 20px;
   }
 }
 .zegarSlajd {
