@@ -1,7 +1,7 @@
 <template>
   <SlajdWrapper>
     <div class="zegarSlajd">
-      <div class="clock">
+      <div v-show="showWatch" class="clock">
         <div class="clock-face">
           <div class="hand hour-hand"></div>
           <div class="hand min-hand"></div>
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="inputsWraper">
-        <label>Krzywa Beziera: <br /><br /></label>
+        <label @click="showWatch = !showWatch">Krzywa Beziera: <br /><br /></label>
         <label>X2:</label>
         <input type="range" min="-2" max="3" step="0.1" v-model="start[0]" />
         <label>Y2:</label>
@@ -24,7 +24,21 @@
         <label>czas trwania:</label>
         <input type="range" min="0" max="1" step="0.1" v-model="duration" />
       </div>
+      <img
+        v-show="!showWatch"
+        class="bezier_img"
+        src="@/assets/bezier.png"
+        alt="bezier"
+      />
+      <a v-show="!showWatch" href="https://cubic-bezier.com/" target="_blank"
+        >https://cubic-bezier.com/</a
+      >
     </div>
+    <p class="showCodeBtn" @click="showCode = !showCode">SHOW CODE</p>
+    <code v-if="showCode" class="code">
+      .hand { <br />transition: all 0.1s; <br />transition-timing-function:
+      cubic-bezier(0.1, 2.7, 0.6, 1); <br />}
+    </code>
   </SlajdWrapper>
 </template>
 
@@ -40,6 +54,8 @@ export default {
     let start = ref([0, 0]);
     let end = ref([0, 0]);
     let duration = ref(0);
+    let showWatch = ref(true);
+    let showCode = ref(false);
     onMounted(() => {
       const secondHand = document.querySelector(".second-hand");
       const minHand = document.querySelector(".min-hand");
@@ -64,11 +80,11 @@ export default {
         if (sec) return;
         secondHand.style.transition = "none";
         setTimeout(() => {
-          secondHand.style.transition = `all 0.05s`;
+          secondHand.style.transition = `all 0.1s`;
         }, 1000);
       }
     });
-    return { start, end, duration };
+    return { start, end, duration, showWatch, showCode };
   },
 };
 </script>
@@ -142,5 +158,29 @@ export default {
     left: 10%;
     transition-timing-function: cubic-bezier(0.1, 2.7, 0.6, 1);
   }
+}
+.bezier_img {
+  position: absolute;
+}
+a {
+  position: absolute;
+  bottom: 200px;
+  color: white;
+}
+.showCodeBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.code {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  color: white;
+  font-size: 18px;
 }
 </style>
