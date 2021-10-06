@@ -1,3 +1,4 @@
+@import "@/style/style.scss";
 <template>
   <router-view></router-view>
 </template>
@@ -25,5 +26,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   perspective: 1000px;
   font-family: "Space Mono", monospace;
+  color: whitesmoke;
 }
 </style>
