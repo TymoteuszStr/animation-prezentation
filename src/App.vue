@@ -25,7 +25,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   perspective: 1000px;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   color: whitesmoke;
 }
 </style>

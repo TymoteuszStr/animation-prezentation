@@ -14,6 +14,11 @@
         </transition-group>
       </ul>
     </div>
+    <p class="showCodeBtn" @click="showCode = !showCode">SHOW CODE</p>
+    <code v-if="showCode" class="code">
+      li {<br />
+      position: absolute; <br />transition: all 0.9s ease-out;<br />}
+    </code>
     <div class="btnWrapper">
       <button class="btn" @click="sortNumbers()">sort</button>
       <button class="btn" @click="shuffleNumbers()">shuffle</button>
@@ -34,15 +39,16 @@ export default {
     const sortNumbers = () => {
       numbers.value.sort((a, b) => a - b);
     };
+    let showCode = ref(false);
     const shuffleNumbers = () => {
       numbers.value.sort(() => (Math.random() > 0.5 ? 1 : -1));
     };
-    return { numbers, sortNumbers, shuffleNumbers };
+    return { numbers, sortNumbers, shuffleNumbers, showCode };
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .list {
   position: relative;
   left: 50px;
@@ -50,6 +56,7 @@ export default {
   height: 600px;
   left: 50%;
   transform: translate(-50%);
+
   li {
     position: absolute;
     width: 100px;
@@ -87,5 +94,21 @@ export default {
     cursor: pointer;
     transform: scale(1.05);
   }
+}
+.showCodeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.code {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color: white;
+  font-size: 18px;
 }
 </style>
