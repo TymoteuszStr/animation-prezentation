@@ -1,7 +1,21 @@
 <template>
   <SlajdWrapper id="slajdWrapper">
     <div class="bg3Wrapper" id="container">
-      <div class="glass" id="glass"></div>
+      <div class="glass" id="glass">
+        <div class="showCodeBtn" @click="showCode = !showCode">SHOW CODE</div>
+        <code v-if="showCode" class="code">
+          <b>css:</b><br /><br />
+          .body{<br />perspective: 1000px;<br />}<br />
+          .card { <br />transform-style: preserve-3d;<br />
+          backdrop-filter: blur(24px);<br />
+          background:linear-gradient(to right bottom, #ffffffb3,#ffffff4d);<br />}
+          <br /><br /><b>javascript</b>:<br /><br />
+          card.addEventListener("mousemove", (e) => <br />{ <br />let xAxis =
+          (slajd.clientHeight / 2 - e.pageX)/50; <br />let yAxis = (slajd.clientWidth / 2
+          - e.pageY )/50; <br />card.style.transform = `rotateY(${xAxis}deg)<br />
+          rotateX(${-yAxis}deg)`; <br />});
+        </code>
+      </div>
       <Circle :size="300" style="bottom: 50px; left: 15%" />
       <Circle :size="340" style="top: 50px; right: 14%" />
     </div>
@@ -20,15 +34,14 @@ export default {
     Circle,
   },
   setup() {
+    let showCode = ref(false);
     onMounted(() => {
       const glassCard = document.querySelector("#glass");
       const container = document.querySelector("#container");
       const slajd = document.querySelector("#slajdWrapper");
       glassCard.addEventListener("mousemove", (e) => {
-        console.log(slajd.clientHeight);
-        let xAxis = (container.clientHeight / 2 - e.pageX + 600) / 70;
-        let yAxis = (container.clientWidth / 2 - e.pageY + 1900) / 70;
-        console.log("xAxis: ", xAxis, "yAxis: ", yAxis);
+        let xAxis = (slajd.clientHeight / 2 - e.pageX + 180) / 50;
+        let yAxis = (slajd.clientWidth / 2 - e.pageY + 2000) / 50;
         glassCard.style.transform = `rotateY(${xAxis}deg) rotateX(${-yAxis}deg)`;
       });
 
@@ -41,7 +54,7 @@ export default {
         glassCard.style.transform = `rotateY(0deg) rotateX(0deg)`;
       });
     });
-    return {};
+    return { showCode };
   },
 };
 </script>
@@ -53,18 +66,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to right top, #2596be, #6cdbeb);
-
   .glass {
     transform-style: preserve-3d;
-    display: flex;
     min-height: 80%;
     width: 60%;
-    background: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 0.7),
-      rgba(255, 255, 255, 0.3)
-    );
+    background: linear-gradient(to right bottom, #ffffffb3, #ffffff4d);
     margin-left: auto;
     margin-right: auto;
     border-radius: 20px;
@@ -74,7 +80,23 @@ export default {
     box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
   }
 }
-
+.showCodeBtn {
+  margin-left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateX(-50%);
+  color: #303030;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.code {
+  margin-left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  color: #303030;
+  font-size: 18px;
+}
 @media (max-width: 959px) {
   .glass {
     width: 80%;

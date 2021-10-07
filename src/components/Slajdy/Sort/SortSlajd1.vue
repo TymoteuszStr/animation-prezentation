@@ -2,25 +2,32 @@
   <SlajdWrapper>
     <div class="sortWrapper">
       <ul class="list">
-        <li
-          class="nr"
-          v-for="(nr, index) in numbers"
-          :key="index"
-          :style="`top:${nr * 25}px`"
-        >
-          {{ nr }}
-        </li>
+        <transition-group>
+          <li
+            class="nr"
+            v-for="(nr, index) in numbers"
+            :key="nr"
+            :style="`top:${index * 35 + 20}px`"
+          >
+            {{ nr }}
+          </li>
+        </transition-group>
       </ul>
     </div>
+    <p class="showCodeBtn" @click="showCode = !showCode">SHOW CODE</p>
+    <code v-if="showCode" class="code">
+      li {<br />
+      position: absolute; <br />transition: all 0.9s ease-out;<br />}
+    </code>
     <div class="btnWrapper">
-      <button class="btn" @click="sortNumbers()">SORT</button>
+      <button class="btn" @click="sortNumbers()">sort</button>
       <button class="btn" @click="shuffleNumbers()">shuffle</button>
     </div>
   </SlajdWrapper>
 </template>
 
 <script>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import SlajdWrapper from "../SlajdWrapper.vue";
 export default {
   name: "SortWrapper",
@@ -28,39 +35,80 @@ export default {
     SlajdWrapper,
   },
   setup() {
-    let numbers = ref([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    let numbers = ref([-5, -1, 0, 1, 2.3, 3, 50, 666, 7, 5.5, 9, 999, 11, 420, 123]);
     const sortNumbers = () => {
       numbers.value.sort((a, b) => a - b);
     };
+    let showCode = ref(false);
     const shuffleNumbers = () => {
       numbers.value.sort(() => (Math.random() > 0.5 ? 1 : -1));
     };
-    return { numbers, sortNumbers, shuffleNumbers };
+    return { numbers, sortNumbers, shuffleNumbers, showCode };
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .list {
   position: relative;
   left: 50px;
+  width: 200px;
+  height: 600px;
+  left: 50%;
+  transform: translate(-50%);
+
   li {
+    position: absolute;
     width: 100px;
-    line-height: 2em;
+    height: 40px;
     text-align: center;
     transition: all 0.9s ease-out;
-    position: absolute;
-    left: 50px;
+    left: 35px;
     list-style: none;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 36px;
+    color: #e3e3e4;
   }
 }
 .btnWrapper {
   position: absolute;
-  right: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .btn {
+  width: 200px;
+  height: 100px;
+  background-color: #b67929;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 1px;
+  border-radius: 50px;
+  margin: 10px 10px;
+  box-shadow: 0px 0px 13px 0px rgba(0, 36, 63, 1);
+  border: none;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+}
+.showCodeBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.code {
+  position: absolute;
+  top: 50px;
   right: 50px;
+  color: white;
+  font-size: 18px;
 }
 </style>

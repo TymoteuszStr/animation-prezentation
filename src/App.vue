@@ -1,3 +1,4 @@
+@import "@/style/style.scss";
 <template>
   <router-view></router-view>
 </template>
@@ -18,11 +19,25 @@ export default {
 
 #app {
   scroll-behavior: smooth;
-  background-color: whitesmoke;
+  background-color: #a3acb1;
   min-height: 100vh;
   max-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   perspective: 1000px;
+  font-family: "Space Mono", monospace;
+  color: whitesmoke;
 }
+.code {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: white;
+    font-size: 18px;
+  }
+button, a {
+&:hover {
+  cursor: pointer;
+}}
+
 </style>
