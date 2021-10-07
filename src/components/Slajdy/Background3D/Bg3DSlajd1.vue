@@ -41,7 +41,7 @@ export default {
       const slajd = document.querySelector("#slajdWrapper");
       glassCard.addEventListener("mousemove", (e) => {
         let xAxis = (slajd.clientHeight / 2 - e.pageX + 180) / 50;
-        let yAxis = (slajd.clientWidth / 2 - e.pageY + 2000) / 50;
+        let yAxis = (slajd.clientWidth / 2 - e.pageY + 1000) / 50;
         glassCard.style.transform = `rotateY(${xAxis}deg) rotateX(${-yAxis}deg)`;
       });
 

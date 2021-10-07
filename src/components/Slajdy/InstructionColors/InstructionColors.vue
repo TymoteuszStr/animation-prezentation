@@ -3,15 +3,16 @@
     <div class="container">
       <h5 class="typing-animation">Kolory</h5>
       <section class="divWrapper">
-      <div class="badge" style="background-color:#000000">(0,0,0) #000000</div>
-      <div class="badge" style="background-color:#FFFFFF; color: black;">(255,255,255) #FFFFFF</div>
-            <div class="badge" style="background-color:#878787">(135, 135, 135) #878787</div>
-      <div class="badge" style="background-color:#FF0000">(255, 0, 0) #FF0000</div>
-      <div class="badge" style="background-color:#FF00FF">(255, 0, 255) #FF00FF</div>
-      <div class="badge" style="background-color:#14debc">(20, 222, 188) #14DEBC</div>
+        <div class="badge" style="background-color: #000000">(0,0,0) #000000</div>
+        <div class="badge" style="background-color: #ffffff; color: black">
+          (255,255,255) #FFFFFF
+        </div>
+        <div class="badge" style="background-color: #878787">(135, 135, 135) #878787</div>
+        <div class="badge" style="background-color: #ff0000">(255, 0, 0) #FF0000</div>
+        <div class="badge" style="background-color: #ff00ff">(255, 0, 255) #FF00FF</div>
+        <div class="badge" style="background-color: #14debc">(20, 222, 188) #14DEBC</div>
       </section>
-      <img src="@/assets/colors.png">
-      
+      <img src="@/assets/colors.png" />
     </div>
   </SlajdWrapper>
 </template>
@@ -33,15 +34,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container{
-padding-top:2rem;
+.container {
+  padding-top: 2rem;
 }
 h5 {
-  text-align:center;
+  text-align: center;
   font-size: 36px;
   margin-bottom: 2rem;
 }
-.divWrapper{
+.divWrapper {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
@@ -54,20 +55,17 @@ img {
   top: 6rem;
   right: 2rem;
 }
-.badge{
-  width: 13rem;
-  height: 13rem;
+.badge {
+  width: 15rem;
+  height: 15rem;
   margin: 2rem;
   border-radius: 0.3rem;
   border: solid 0px;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-weight:700;
+  font-weight: 700;
   font-size: 20px;
   text-align: center;
-  
-
 }
-  
 </style>
