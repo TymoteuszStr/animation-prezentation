@@ -67,7 +67,7 @@ export default {
 @import "@/style/style.scss";
 
 .code {
-  font-size:0.8rem;
+  font-size: 1rem;
 }
 .button-link {
   font-size: 2rem;
@@ -84,8 +84,8 @@ export default {
   align-items: center;
 }
 .button-link{
-  font-size: 1.5rem;
-  width: 150px;
+  font-size: 2.8rem;
+  width: 250px;
   position: relative;
   text-align:center;
   vertical-align: center;

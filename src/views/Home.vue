@@ -6,8 +6,10 @@
   <Buttons />  
   <Buttons2 />
   <Buttons3 />
+  <Animation/>
   <InstructionColors/>
   <RandomColor />
+
 </template>
 
 <script>
@@ -20,7 +22,7 @@ import Buttons2 from "@/components/Slajdy/Buttons2/Buttons2.vue";
 import Buttons3 from "@/components/Slajdy/Buttons3/Buttons3.vue";
 import Title from "@/components/Slajdy/Title/Title.vue";
 import InstructionColors from "@/components/Slajdy/InstructionColors/InstructionColors.vue";
-
+import Animation from "@/components/Slajdy/Animation/Animation.vue";
 export default {
   name: "Home",
   components: {
@@ -32,7 +34,8 @@ export default {
     Buttons2,
     Buttons3,
     Title,
-    InstructionColors
+    InstructionColors,
+    Animation,
   },
 };
 </script>

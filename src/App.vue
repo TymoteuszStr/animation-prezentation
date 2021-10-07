@@ -35,4 +35,9 @@ export default {
     color: white;
     font-size: 18px;
   }
+button, a {
+&:hover {
+  cursor: pointer;
+}}
+
 </style>

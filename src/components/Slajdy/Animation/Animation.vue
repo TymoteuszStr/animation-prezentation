@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>animacje dory</title>
-</head>
-<body>
+<template>
+  <SlajdWrapper>
 
     <div class="background-image">
             <svg id="train_svg" viewBox="0 0 1025 596" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -62,5 +54,162 @@
                 
                 
         </div>
-</body>
-</html>
+  </SlajdWrapper>
+</template>
+
+<script>
+import { ref } from "vue";
+import SlajdWrapper from "../SlajdWrapper.vue";
+export default {
+  name: "Animation",
+  components: {
+    SlajdWrapper,
+  },
+  setup() {
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+/* .background-image {
+    background-color: bisque;
+    height: 500px;
+    background-image: url(../animation-prezentation/images/AdventureRoad.svg);
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-position: 0%;
+    
+} */
+
+.background-image {
+ 
+    
+}
+#sun_svg {
+    position:absolute;
+    top:200px;
+    width: 100vw;
+}
+#car_svg{
+    height: 550px;
+    width: 100vw;
+    position: absolute;
+    left: 100px;
+}
+
+#van {
+ 
+}
+#train, #train1{
+    width: 100vw;
+}
+.dark-bottom {
+    background-color: black;
+    position: absolute;
+    top: 600px;
+    height: 500px;
+    width: 100vw;
+    z-index: 0;
+    margin-left: 0;
+}
+.background-image {
+   
+    /* margin-top: 100px; */
+    margin: 0;
+    background: url(bg6.svg) repeat-x;
+    /* background-clip: border-box; */
+    background-size: 9000px;
+    -webkit-animation: loader 40s steps(1500) infinite;
+    -moz-animation: loader 40s steps(1500) infinite;
+    -ms-animation: loader 40s steps(1500) infinite;
+    -o-animation: loader 40s steps(1500) infinite;
+    animation: loader 40s steps(1500) infinite;
+}
+
+#head {
+    animation: head 2s linear infinite;
+}
+
+@keyframes  head {
+    0% {
+        transform: translateY(0px);
+      }
+    50% {
+        transform: translateY(4px);
+    }
+    100% {
+        transform: translateY(-4px);
+      }
+}
+@-webkit-keyframes loader {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -9000px;
+  }
+}
+@-moz-keyframes loader {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -9000px;
+  }
+}
+@-ms-keyframes loader {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -9000px;
+  }
+}
+@-o-keyframes loader {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -9000px;
+  }
+}
+@keyframes loader {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -9000px;
+  }
+}
+
+#kolo-lewe, #kolo-prawe {
+    animation: wheel 1s linear infinite;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+
+#sun {
+    animation: sun 10s linear;
+    transform-origin: center;
+    z-index:-10;
+    /* transform-box: fill-box; */
+}
+@keyframes wheel {
+    from {
+        transform: rotatez(0deg);
+    }
+    to {
+        transform: rotatez(360deg);
+    }
+}
+
+
+@keyframes sun {
+    from {
+        transform: rotatez(0deg);
+    }
+    to {
+        transform: rotatez(200deg);
+    }
+}
+</style>

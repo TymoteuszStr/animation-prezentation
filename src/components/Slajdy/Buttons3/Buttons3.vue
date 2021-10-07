@@ -67,7 +67,7 @@ export default {
 @import "@/style/style.scss";
 
 .button-link {
-  font-size: 2rem;
+  font-size: 3rem;
   color: $font-color;
   text-decoration: none;
 }
@@ -78,7 +78,7 @@ export default {
 }
 .button-link {
   height: 4rem;
-  font-weight:700;
+  font-weight:600;
   position: relative;
   letter-spacing: 2px;
   color: #112b49;
@@ -91,15 +91,15 @@ export default {
     left: 0;
     content:"";
     border-radius: 100px;
-    height: 4rem;
-    width: 4rem;
+    height: 5.4rem;
+    width: 5.4rem;
     transition: width 1s ease-in;
     background-color: $primary;
     mix-blend-mode: screen;
   
   }
   &:hover:before {
-    width: 14rem;
+    width: 16rem;
   }
 }
 .button-container {
