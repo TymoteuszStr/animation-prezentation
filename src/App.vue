@@ -28,4 +28,11 @@ export default {
   font-family: "Space Mono", monospace;
   color: whitesmoke;
 }
+.code {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: white;
+    font-size: 18px;
+  }
 </style>

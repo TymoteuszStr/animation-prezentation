@@ -3,10 +3,11 @@
   <SortSlajd1 />
   <ZegarSlajd1 />
   <Bg3DSlajd1 />
-  <Buttons />
-  <RandomColor />
+  <Buttons />  
   <Buttons2 />
   <Buttons3 />
+  <InstructionColors/>
+  <RandomColor />
 </template>
 
 <script>
@@ -18,6 +19,7 @@ import RandomColor from "@/components/Color/RandomColor.vue";
 import Buttons2 from "@/components/Slajdy/Buttons2/Buttons2.vue";
 import Buttons3 from "@/components/Slajdy/Buttons3/Buttons3.vue";
 import Title from "@/components/Slajdy/Title/Title.vue";
+import InstructionColors from "@/components/Slajdy/InstructionColors/InstructionColors.vue";
 
 export default {
   name: "Home",
@@ -30,6 +32,7 @@ export default {
     Buttons2,
     Buttons3,
     Title,
+    InstructionColors
   },
 };
 </script>

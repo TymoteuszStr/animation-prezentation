@@ -1,24 +1,48 @@
 <template>
   <SlajdWrapper>
     <div class="button-container">
-      <a href="#" class="button-link">
+      <a  class="button-link"  @click="showCode = !showCode">
         <div class="circle">
         </div>
         <span class="text">CLICK ME</span>
         <img src="@/assets/arrow.svg" alt="ddd" class="button-icon">
       </a>
-      <a href="#" class="button-link">
+      <a  class="button-link" @click="showCode = !showCode">
         <div class="circle circle-right">
         </div>
         <img src="@/assets/arrow.svg" alt="ddd" class="button-icon icon-left">
         <span class="text text-right">CLICK ME</span>
       </a>
-      
     </div>
+    <code v-if="showCode" class="code">
+      <pre>
+        .circle {
+            position: absolute;
+            display: inline-block;
+            ...
+            height: 4rem;
+            width: 4rem;
+            transition: width 1s ease;
+        }
+        .button-link:hover > .circle {
+          width: 15rem;
+        }
+        .button-link:hover > .button-icon {
+          opacity: 1;
+        }
+        .button-icon {
+          display: inline-block;
+          opacity: 0;
+          transition: opacity 0.5s ease;
+        }
+      </pre>
+    </code>
+ 
   </SlajdWrapper>
 </template>
 
 <script>
+import { ref } from "vue";
 import { onMounted } from "vue";
 import SlajdWrapper from "../SlajdWrapper.vue";
 export default {
@@ -27,12 +51,26 @@ export default {
     SlajdWrapper,
   },
   setup() {
-    
+     let showCode = ref(false);
+    return { showCode };
   },
 };
 </script>
 
 <style lang="scss" scoped>
+
+  .code {
+    white-space: pre-wrap;
+  }
+  .showCodeBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+    &:hover {
+    cursor: pointer;
+    }
+  }
 
 .button-link {
   font-size: 2rem;
@@ -44,6 +82,7 @@ export default {
   height: 60%;
   margin: 10% 20%;
   display: flex;
+  padding-left: 10vw;
   justify-content: space-around;
 }
 
@@ -55,9 +94,9 @@ img {
 .circle {
     position: absolute;
     display: inline-block;
-    height: 4rem;
     border-radius: 50px;
     background-color: coral;
+    height: 4rem;
     width: 4rem;
     transition: width 1s ease;
 }

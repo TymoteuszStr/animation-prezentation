@@ -1,27 +1,55 @@
 <template>
   <SlajdWrapper>
     <div class="button-container">
-      <a href="#" class="button-link">
+      <a @click="showCode = !showCode" class="button-link">
         <div class="button-text">
           SCREEN
         </div>
       </a>
-      <a href="#" class="button-link effect2">
+      <a @click="showCode = !showCode" class="button-link effect2">
         <div class="button-text">
           DIFFER
         </div>
       </a>
-    <a href="#" class="button-link effect3">
+    <a @click="showCode = !showCode" class="button-link effect3">
       <div class="button-text">
         DODGE
       </div>
     </a>
   </div>
+   <code v-if="showCode" class="code">
+      <pre>
+      .button-link {
+        color: #112b49;
+        mix-blend-mode: screen;
+
+        &:before{
+          position: absolute; left: 0;
+          content:"";
+          border-radius: 100px;
+          height: 4rem;
+          width: 4rem;
+          transition: width 1s ease-in;
+          background-color: $primary;
+          mix-blend-mode: screen;
+        }
+        &:hover:before {
+          width: 14rem;
+        }
+      }
+      .effect2, .effect2:before{
+          mix-blend-mode: difference;
+      }
+      .effect3, .effect3:before{
+          mix-blend-mode: color-dodge;
+      }
+      </pre>
+  </code>
   </SlajdWrapper>
 </template>
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import SlajdWrapper from "../SlajdWrapper.vue";
 export default {
   name: "Buttons3",
@@ -29,6 +57,8 @@ export default {
     SlajdWrapper,
   },
   setup() {
+    let showCode = ref(false);
+    return { showCode };
   },
 };
 </script>
