@@ -9,6 +9,38 @@
         ></div>
         <button class="colorBtn" @click="randColor()">LOSUJ KOLOR</button>
       </div>
+      <div class="rightSide">
+        <div class="inputWrapper">
+          <label>ODPOWIEDŹ:</label>
+          <div>
+            <label> R: </label>
+            <input type="number" min="0" max="255" v-model="answer[0]" />
+          </div>
+          <div>
+            <label> G: </label>
+            <input type="number" min="0" max="255" v-model="answer[1]" />
+          </div>
+          <div>
+            <label> B: </label>
+            <input type="number" min="0" max="255" v-model="answer[2]" />
+          </div>
+          <div>
+            <button class="colorBtn" @click="oblicz()">Oblicz Wynik</button>
+          </div>
+        </div>
+        <div class="answerWrapper">
+          <div class="chart" @click="restScore()">
+            <transition>
+              <div
+                v-if="showFill"
+                class="chart--fill"
+                :style="`background-color:rgb(${answer[0]},${answer[1]},${answer[2]}); height: ${fillHeight}%;`"
+              ></div>
+            </transition>
+          </div>
+          <label>WYNIK</label>
+        </div>
+      </div>
     </div>
   </SlajdWrapper>
 </template>
@@ -24,22 +56,58 @@ export default {
   },
   setup() {
     const randNr = () => Math.floor(Math.random() * 256);
+
     let r = ref(randNr());
     let g = ref(randNr());
     let b = ref(randNr());
-
+    let answer = ref([]);
+    let showFill = ref(true);
+    let fillHeight = ref(0);
     const randColor = () => {
       r.value = randNr();
       g.value = randNr();
       b.value = randNr();
     };
-    return { r, g, b, randColor };
+    const MAX_SCORE = 765;
+    const MIN_SCORE = 0;
+    function calculateDiff(colorQuess, colorAnswer) {
+      const diffR = Math.abs(colorQuess[0] - colorAnswer[0]);
+      const diffB = Math.abs(colorQuess[1] - colorAnswer[1]);
+      const diffG = Math.abs(colorQuess[2] - colorAnswer[2]);
+      return diffR + diffG + diffB;
+    }
+
+    const oblicz = () => {
+      fillHeight.value =
+        (100 * (MAX_SCORE - calculateDiff([r.value, g.value, b.value], answer.value))) /
+        MAX_SCORE;
+    };
+    const restScore = () => {
+      fillHeight.value = 0;
+      answer.value = [];
+    };
+    return {
+      r,
+      g,
+      b,
+      randColor,
+      calculateDiff,
+      MAX_SCORE,
+      answer,
+      showFill,
+      oblicz,
+      fillHeight,
+      restScore,
+    };
   },
 };
 </script>
 <style lang="scss" scoped>
 @import "@/style/style.scss";
 
+.randomColorWrapper {
+  display: flex;
+}
 .leftSide {
   position: absolute;
   top: 0;
@@ -49,23 +117,69 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-bottom: 50px;
   .colorContainer {
     border: 2px solid white;
     width: 80%;
-    height: 400px;
+    height: 500px;
   }
-  .colorBtn {
-    width: 30%;
-    border-radius: 50px;
-    height: 80px;
-    background-color: $main-color;
-    color: white;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 2px;
-    padding: 20px;
-    margin-top: 50px;
+}
+.rightSide {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding-bottom: 50px;
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+    input {
+      width: 250px;
+      height: 50px;
+      font-size: 24px;
+    }
+  }
+  label {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+}
+.colorBtn {
+  width: 300px;
+  border-radius: 50px;
+  height: 80px;
+  background-color: $main-color;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 20px;
+  margin-top: 50px;
+}
+.answerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chart {
+  position: relative;
+  height: 600px;
+  width: 200px;
+  border: 1px solid $main-color;
+  border-radius: 30px;
+  &--fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    border-radius: 30px;
+    transition: all 5s ease-out;
   }
 }
 </style>
