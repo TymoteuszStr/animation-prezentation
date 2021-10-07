@@ -82,7 +82,6 @@ export default {
   height: 60%;
   margin: 10% 20%;
   display: flex;
-  padding-left: 10vw;
   justify-content: space-around;
 }
 
