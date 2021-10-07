@@ -31,5 +31,6 @@ export default {
   -webkit-box-shadow: 0px 0px 28px -3px rgba(0, 36, 63, 1);
   -moz-box-shadow: 0px 0px 28px -3px rgba(0, 36, 63, 1);
   box-shadow: 0px 0px 28px -3px rgba(0, 36, 63, 1);
+  overflow: hidden;
 }
 </style>

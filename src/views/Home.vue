@@ -7,24 +7,15 @@
   >
     <swiper-slide><Title /> </swiper-slide>
     <swiper-slide><SortSlajd1 /> </swiper-slide>
-    <swiper-slide><ZegarSlajd1 /> </swiper-slide>
-    <swiper-slide><Bg3DSlajd1 /> </swiper-slide>
     <swiper-slide><Buttons /> </swiper-slide>
     <swiper-slide><Buttons2 /> </swiper-slide>
     <swiper-slide><Buttons3 /> </swiper-slide>
+    <swiper-slide><ZegarSlajd1 /> </swiper-slide>
+    <swiper-slide><Bg3DSlajd1 /> </swiper-slide>
+    <swiper-slide><Animation /> </swiper-slide>
     <swiper-slide><InstructionColors /> </swiper-slide>
     <swiper-slide><RandomColor /> </swiper-slide>
   </swiper>
-  <Title />
-  <SortSlajd1 />
-  <ZegarSlajd1 />
-  <Bg3DSlajd1 />
-  <Buttons />
-  <Buttons2 />
-  <Buttons3 />
-  <Animation />
-  <InstructionColors />
-  <RandomColor />
 </template>
 
 <script>
